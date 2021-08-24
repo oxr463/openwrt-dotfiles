@@ -1,0 +1,16 @@
+version: "3"
+services:
+  openwrt-sdk:
+    container_name: openwrt-sdk
+    hostname: openwrt-sdk
+    image: openwrtorg/sdk:latest
+    volumes:
+      - ~/src/openwrt/:/home/build/openwrt
+  openwrt-router:
+    container_name: openwrt-router
+    hostname: openwrt-router
+    image: oxr463/openwrt-router:latest
+    build: .
+    ports:
+      - "80:80"
+
